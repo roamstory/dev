@@ -1,0 +1,13 @@
+    <form name="todoForm" ng-submit="add(newTodoTitle)">
+      <div class="input-group">
+        <input type="text" class="form-control" ng-model="newTodoTitle" placeholder="새로운 투두를 입력해주세요." minlength="3">
+        <span class="input-group-btn">
+           <button class="btn btn-success" type="submit">추가</button>
+        </span>
+      </div>
+
+      <div ng-show="todoForm.$dirty && todoForm.$invalid">
+        <div class="alert alert-warning" role="alert">3 글 자 이 상 입 력 해 주 세 요.</div>
+      </div>
+    </form>
+    <br>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="stateapp" ng-controller="statecontroller">
+    <select>
+        <option ng-repeat="x in states" value="{{ x.id }}">{{ x.name }}</option>
+    </select>
+    <script>
+        var app = angular.module('stateapp',[]);
+        app.controller('statecontroller',['$scope','$http',function($scope,$http){
+            $http.get("db_class.php").success(function(response){
+                $scope.states=response;
+            });
+        }]);
+    </script>
+</div>
+
+</body>
+</html>
